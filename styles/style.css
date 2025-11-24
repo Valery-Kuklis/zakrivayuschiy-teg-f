@@ -37,7 +37,7 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  font-variation-settings: var(--font-weight-main);
+  font-variation-settings: var(--font-weight-regular);
   font-family: var(--font-weight-main);
 }
 
