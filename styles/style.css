@@ -55,7 +55,7 @@
   font-family: var(--font-family-accent, sans-serif);
   text-transform: uppercase;
   font-weight: 400;
-  font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);;
+  font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);
   line-height: 100%;
   letter-spacing: 0;
   color: var(--text-color, #000);
