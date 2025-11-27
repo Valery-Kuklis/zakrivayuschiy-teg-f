@@ -12,9 +12,6 @@
 
 .page {
   min-inline-size: 320px;
-  min-block-size: 100vh;
-  height: 100vh;
-  min-height: 667px;
   margin: auto;
   max-width: 700px;
   background-image:
@@ -37,64 +34,65 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  font-variation-settings: 'wght' var(--font-weight-regular);
-  font-family: var(--font-family-main), sans-serif;
+  font-variation-settings: 'wght' var(--font-weight-regular, 410);
+  font-family: var(--font-family-main, sans-serif);
 }
 
 .header {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: var(--bg-color);
-  inline-size: var(--inline-size);
-  height: 368px;
+  background-color: var(--bg-color, #fff);
+  inline-size: var(--inline-size, clamp(375px, 100%, 700px));
   margin: 100px 0;
   border: #000 solid 2px;
   align-items: center;
   justify-content: center;
+  padding: 130px 122.5px;
 }
 
-h1 {
-  font-family: var(--font-family-accent), sans-serif;
+.logo {
+  font-family: var(--font-family-accent, sans-serif);
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 65px;
+  font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);;
   line-height: 100%;
   letter-spacing: 0;
-  color: var(--text-color);
+  color: var(--text-color, #000);
 }
 
-h2 {
-  font-family: var(--font-family-accent), sans-serif;
+.name {
+  font-family: var(--font-family-accent, sans-serif);
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 23px;
+  font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
   line-height: 100%;
   letter-spacing: 0;
-  color: var(--text-color);
+  color: var(--text-color, #000);
+  inline-size: var(--inline-size, clamp(375px, 100%, 700px));
+  text-align: center;
 }
 
 .content {
   display: grid;
-  inline-size: var(--inline-size);
+  inline-size: var(--inline-size, clamp(375px, 100%, 700px));
   height: min-content;
-  background-color: var(--bg-color);
 }
 
 .card {
   display: grid;
-  inline-size: var(--inline-size);
+  inline-size: var(--inline-size, clamp(375px, 100%, 700px));
   height: min-content;
   border: 2px solid #000;
   margin-bottom: 50px;
-
+  background-color: var(--bg-color, #fff);
 }
 
 .card-text__title {
-  font-family: var(--font-family-main), sans-serif;
-  font-variation-settings: 'wght' var(--font-weight-bold);
+  font-family: var(--font-family-main, sans-serif);
+  font-variation-settings: 'wght' var(--font-weight-bold, 715);
   font-size: 18px;
-  color: var(--text-color);
+  color: var(--text-color, #000);
   margin: 5px 10px;
 }
 
@@ -106,7 +104,6 @@ h2 {
 
 .card__picture {
   display: block;
-  min-width: 371px;
   max-width: 100%;
   height: auto;
 }
@@ -115,30 +112,30 @@ h2 {
   position: absolute;
   top: 25px;
   right: 25px;
-  font-family: var(--font-family-accent), sans-serif;
+  font-family: var(--font-family-accent, sans-serif);
   text-transform: uppercase;
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
   letter-spacing: 0;
-  color: var(--text-color);
+  color: var(--text-color, #000);
   opacity: 50%;
   mix-blend-mode: hard-light;
-  text-shadow: -1px 0 var(--text-shadow-color), 0 1px var(--text-shadow-color), 1px 0 var(--text-shadow-color), 0 -1px var(--text-shadow-color);
+  text-shadow: -1px 0 var(--text-shadow-color, rgba(255, 255, 255, 0.5)), 0 1px var(--text-shadow-color, rgba(255, 255, 255, 0.5)), 1px 0 var(--text-shadow-color, rgba(255, 255, 255, 0.5)), 0 -1px var(--text-shadow-color, rgba(255, 255, 255, 0.5));
 }
 
-@supports ((text-stroke: 1px var(--text-shadow-color)) or (-webkit-text-stroke:1px var(--text-shadow-color))) {
+@supports ((text-stroke: 1px var(--text-shadow-color, rgba(255, 255, 255, 0.5))) or (-webkit-text-stroke:1px var(--text-shadow-color, rgba(255, 255, 255, 0.5)))) {
   .lable-text {
-    -webkit-text-stroke:1px var(--text-shadow-color)
+    -webkit-text-stroke:1px var(--text-shadow-color, rgba(255, 255, 255, 0.5))
   }
 }
 
 .content__text {
-  font-family: var(--font-family-main), sans-serif;
-  font-weight: var(--font-weight-regular);
+  font-family: var(--font-family-main, sans-serif);
+  font-weight: var(--font-weight-regular, 410);
   font-size: 18px;
   line-height: 21px;
-  color: var(--text-color);
+  color: var(--text-color, #000);
 }
 
 .content-story {
@@ -152,7 +149,6 @@ h2 {
 }
 
 .button-card {
-  height: 38px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -182,22 +178,18 @@ h2 {
 }
 
 .button {
-  font-family: var(--font-family-accent), sans-serif;
+  font-family: var(--font-family-accent, sans-serif);
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
   letter-spacing: 0;
   cursor: pointer;
   padding: 0;
-  color: var(--button-text-color);
-  background-color: var(--bg-color);
+  color: var(--button-text-color, #fff);
+  background-color: var(--bg-color, #fff);
 }
 
 .button .save-icon {
-  mix-blend-mode: difference;
-}
-
-.button__text {
   mix-blend-mode: difference;
 }
 
@@ -224,7 +216,7 @@ h2 {
 }
 
 .button__transform:hover {
-  background-color: transparent;
+  background-color: white;
 }
 
 .button__transform::before {
@@ -243,13 +235,9 @@ h2 {
   left: 0%;
 }
 
-.button__transform:hover .button__text {
+.button__text {
   color: white;
   mix-blend-mode: difference;
-}
-
-.button__transform:hover .save-icon {
-  fill: white;
 }
 
 .button__transform:focus {
@@ -257,8 +245,8 @@ h2 {
 }
 
 .button__transform:focus-visible {
-  box-shadow: 2px 2px 0 var(--text-color);
-  transform: color;
+  box-shadow: 2px 2px 0 var(--text-color, #000);
+  color: white;
   transition: box-shadow 0.3s ease;
 }
 
@@ -273,9 +261,8 @@ h2 {
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
-  width: 335px;
-  height: 55px;
-  background-color: inherit;
+  padding: 17px 20px;
+  background-color: var(--bg-color, #fff);
   margin-bottom: 100px;
   border: 2px solid #000;
 }
@@ -286,20 +273,25 @@ h2 {
   z-index: 1;
 }
 
-dialog:open {
-  display: grid;
-  grid-template-columns: min-content auto;
-  grid-template-rows: repeat(2, auto);
-  width: 341px;
-  height: 191px;
-  gap: 20px;
-  padding: 30px 40px;
+.dialog {
+  display: none;
+  grid-template-columns: min-content 1fr;
+  outline: 2px solid #000;
+  padding: 27px 30px;
+  max-width: 353px;
+  row-gap: 30px;
+  column-gap: 20px;
+  border: none;
   align-items: center;
-  border: 2px solid #000;
 }
 
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.7);
+.dialog[open] {
+  display: grid;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 1);
+  opacity: 75%;
   z-index: 1;
 }
 
@@ -308,21 +300,20 @@ dialog::backdrop {
 }
 
 .dialog-text {
-  font-family: var(--font-family-accent), sans-serif;
+  font-family: var(--font-family-accent, sans-serif);
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
   letter-spacing: 0;
   text-transform: uppercase;
+  
 }
 
 .button__card-dialog {
-  grid-column-start: 1;
-  grid-column-end: 3;
   background-color: inherit;
-  border: 2px solid #000;
-  height: 38px;
-  width: 261px;
+  grid-column: span 2;
+  padding-top: 10.5px;
+  padding-bottom: 10.5px;
 }
 
 .dialog__save-icon {
@@ -344,7 +335,7 @@ dialog::backdrop {
 }
 
 .like-icon.is-liked .contour {
-  fill: var(--animation-fill-color-finish);
+  fill: var(--animation-fill-color-finish, rgba(255, 0, 0, 1));
   transition: fill 0.3s linear 0.06s;
 }
 
@@ -353,17 +344,17 @@ dialog::backdrop {
 }
 
 .like-icon:hover .main-body {
-  fill: var(--color-heart-hover);
+  fill: var(--color-heart-hover, #000);
   transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon:active .main-body {
-  fill: var(--animation-fill-color-finish);
+  fill: var(--animation-fill-color-finish,  rgba(255, 0, 0, 1));
   transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .main-body {
-  fill: var(--animation-fill-color-finish);
+  fill: var(--animation-fill-color-finish,  rgba(255, 0, 0, 1));
   transition: fill 0.3s linear 0.05s;
 }
 
@@ -372,42 +363,36 @@ dialog::backdrop {
 }
 
 .like-icon:hover .core {
-  fill: var(--color-heart-hover);
+  fill: var(--color-heart-hover, #000);
   transition: fill 0.3s linear;
 }
 
 .like-icon:active .core {
-  fill: var(--animation-fill-color-finish);
+  fill: var(--animation-fill-color-finish,  rgba(255, 0, 0, 1));
   transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .core {
-  fill: var(--animation-fill-color-finish);
+  fill: var(--animation-fill-color-finish,  rgba(255, 0, 0, 1));
   transition: fill 0.3s linear;
 }
 
 @media (width <= 375px) {
   .header {
-    height: 327px;
-  }
-  
-  h1 {
-    font-size: 49px;
-  }
-
-  h2 {
-    font-size: 14px;
+    padding: 122px 16px;
   }
 
   .button__save {
-    width: 306px;
-    height: 84px;
     flex-direction: column;
   }
 
   .save-icon {
     width: 28px;
     height: 28px;
+  }
+
+  .dialog {
+  padding: 27px 40px;
   }
 }
 
